@@ -42,3 +42,65 @@ When dealing with multiple projects, you no longer need to save the file multipl
 
 Explore the power of `databridge` to enhance your workflow and centralize your datasets effortlessly.
 
+## How to configure databridge?
+
+To configure `databridge`, you need to create a `config.json` file in the same location where the `databridge` package is installed.
+The `config.json` file should contain the following structure:
+
+```json
+{
+  "local": {
+    "dataset_name": {
+        "path": "absolute path to dataset file",
+        "file": "file name including extension",
+        "function": "function to load the dataset (e.g., gpd.read_file)"
+    },
+    "texas_boundaries": {
+        "path": "C:/Users/username/Documents/myproject_data_folder",
+        "file": "Texas_boundaries.shp",
+        "function": "gpd.read_file"
+  }
+}
+```
+
+The package has a built-in method to create the `config.json` file.
+
+```python
+# Import databridge package
+from databridge.databridge import ConfigUpdater
+
+# Initiate ConfigUpdater class
+cfu = ConfigUpdater()
+
+# Update config.json file
+cfu.update_config(
+    environment="local",
+    dataset_name="texas_boundaries",
+    path="C:/Users/username/Documents/myproject_data_folder",
+    file="Texas_boundaries.shp",
+    function="gpd.read_file"
+    )
+
+# Save the updated config.json file
+cfu.save_config()
+```
+
+The `config.json` file is now updated with the new dataset information.
+
+## How to use databridge?
+
+To use `databridge`, you need to install the package and import the `DataBridge` class.
+
+```python
+# Import databridge package
+from databridge.databridge import DataBridge
+
+# Initiate databridge class
+db = DataBridge()
+
+# List all available datasets
+db.list_datasets()
+
+# Load dataset
+df = db.load_dataset("local", "texas_boundaries")
+```
