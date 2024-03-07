@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'setup.py'
 
 jobs:
   build:
@@ -38,7 +40,6 @@ jobs:
 
   deploy:
     needs: build
-    if: contains(github.event.head_commit.modified, 'setup.py')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
