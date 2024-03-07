@@ -108,7 +108,7 @@ class DataBridge:
             return dataset
         except KeyError:
             raise ValueError(
-                f"Dataset {dataset_name} in env {environment} not found")
+                f"Dataset {dataset_name} in env {environment} not found.")
 
     def get_available_datasets(self, environment):
         return list(self.config_data.get(environment, {}).keys())

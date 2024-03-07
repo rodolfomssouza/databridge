@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="databridge",
-    version="0.2.5",
+    version="0.2.6",
     description="Bridge shared datasets across diverse projects.",
     long_description=long_description,
     long_description_content_type="text/markdown",
