@@ -3,8 +3,9 @@
 import unittest
 import json
 import os
-from databridge.databridge import ConfigUpdater 
+from databridge.databridge import ConfigUpdater
 from databridge.databridge import DataBridge
+
 
 class TestConfigUpdater(unittest.TestCase):
     def setUp(self):
@@ -52,12 +53,12 @@ class TestLoadData(unittest.TestCase):
         # Set up any initial conditions for the tests
         self.data_bridge = DataBridge(
             config_file='test_config.json')
-    
+
     def tearDown(self):
         # Clean up after each test (e.g., remove created files)
         if os.path.exists('databridge/test_config.json'):
             os.remove('databridge/test_config.json')
-        
+
     def test_load_dataset(self):
         df = self.data_bridge.load_dataset(
             environment="test",

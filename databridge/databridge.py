@@ -5,6 +5,7 @@ Create a bridge between the data and the application.
 # Packages
 import geopandas as gpd  # noqa
 import pandas as pd  # noqa
+import polars as pl  # noqa
 import json
 import os
 from prettytable import PrettyTable
@@ -124,6 +125,7 @@ class DataBridge:
             for dataset, config in datasets.items():
                 table.add_row([env, dataset, config["path"], config["file"]])
         print(table)
+
 
 # Create an instance of the class
 config_updater = ConfigUpdater()
