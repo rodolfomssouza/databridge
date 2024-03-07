@@ -10,25 +10,16 @@ import os
 from prettytable import PrettyTable
 
 
-# Classes
-class SetupDatasets:
-
-    def __init__(self, path_to_data=None, dataset_name=None):
-        # Get directory module
-        self.path_to_data = path_to_data
-        self.dataset_name = dataset_name
-        pass
-
-    pass
-
+# %% Classes ------------------------------------------------------------------
 
 class ConfigUpdater:
-    def __init__(self, config_file_name='config.json'):
+    def __init__(self, config_file='config.json'):
         # Get directory module
         module_dir = os.path.dirname(os.path.abspath(__file__))
 
         # Construct path to config file
-        self.config_file_path = os.path.join(module_dir, config_file_name)
+        self.config_file_path = os.path.join(module_dir, config_file)
+        print(self.config_file_path)
         self.config_data = self.load_config()
 
     def load_config(self):
@@ -36,6 +27,9 @@ class ConfigUpdater:
             with open(self.config_file_path, 'r') as config_file:
                 config_data = json.load(config_file)
         except (FileNotFoundError, json.JSONDecodeError):
+            # Create file if it does not exist
+            with open(self.config_file_path, 'w') as config_file:
+                config_file.write("{}")
             config_data = {}
         return config_data
 
@@ -85,8 +79,10 @@ class DataBridge:
             with open(self.config_file_path, 'r') as config_file:
                 config_data = json.load(config_file)
         except (FileNotFoundError, json.JSONDecodeError):
-            raise ValueError("Error loading config.json")
-
+            # Create file if it does not exist
+            with open(self.config_file_path, 'w') as config_file:
+                config_file.write("{}")
+            config_data = {}
         return config_data
 
     def load_dataset(self, environment, dataset_name):
@@ -128,3 +124,7 @@ class DataBridge:
             for dataset, config in datasets.items():
                 table.add_row([env, dataset, config["path"], config["file"]])
         print(table)
+
+# Create an instance of the class
+config_updater = ConfigUpdater()
+data_bridge = DataBridge()

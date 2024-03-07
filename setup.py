@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="databridge",
-    version="0.2.2",
+    version="0.2.3",
     description="Bridge to import shared datasets across diverse projects.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -13,6 +13,7 @@ setup(
     install_requires=[
         "pandas",
         "geopandas",
+        "polars",
         "prettytable",
     ],
     author="Rodolfo Souza",

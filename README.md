@@ -28,16 +28,16 @@ This method is straightforward but can become repetitive when dealing with multi
 
 ```python
 # Import databridge package
-from databridge.databridge import DataBridge
+from databridge.databridge import data_bridge as db
 
-# Initiate databridge class
-db = DataBridge()
+# List all available datasets
+db.list_datasets()
 
 # Load dataset
 texas_boundaries = db.load_dataset("local", "texas_boundaries")
 ```
 
-Although Example 2 has one extra line of code compared to Example 1, it significantly reduces redundancy.
+Although Example 2 has the same number of line of code as Example 1, it significantly reduces redundancy.
 When dealing with multiple projects, you no longer need to save the file multiple times or manually set different paths.
 
 Explore the power of `databridge` to enhance your workflow and centralize your datasets effortlessly.
@@ -67,10 +67,7 @@ The package has a built-in method to create the `config.json` file.
 
 ```python
 # Import databridge package
-from databridge.databridge import ConfigUpdater
-
-# Initiate ConfigUpdater class
-cfu = ConfigUpdater()
+from databridge.databridge import config_updater as cfu
 
 # Update config.json file
 cfu.update_config(
@@ -93,10 +90,7 @@ To use `databridge`, you need to install the package and import the `DataBridge`
 
 ```python
 # Import databridge package
-from databridge.databridge import DataBridge
-
-# Initiate databridge class
-db = DataBridge()
+from databridge.databridge import data_btidge as db
 
 # List all available datasets
 db.list_datasets()
