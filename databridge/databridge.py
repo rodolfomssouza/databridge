@@ -20,7 +20,6 @@ class ConfigUpdater:
 
         # Construct path to config file
         self.config_file_path = os.path.join(module_dir, config_file)
-        print(self.config_file_path)
         self.config_data = self.load_config()
 
     def load_config(self):
