@@ -3,6 +3,14 @@
 The `databridge` package streamlines the management of common datasets across diverse projects.
 It facilitates the setup of paths, file names, and Python commands to access centralized files efficiently.
 
+## Installation
+
+To install the package, use the following command:
+
+```bash
+pip install databridge
+```
+
 ## Why Use databridge?
 
 Managing common datasets across multiple projects often involves repetitive tasks such as saving files, configuring paths, and importing libraries.
@@ -22,7 +30,6 @@ texas_boundaries = gpd.read_file("myproject_data_folder/Texas_boundaries.shp")
 ```
 
 This method is straightforward but can become repetitive when dealing with multiple projects.
-
 
 ## Example 2 - with databrigde
 
@@ -90,7 +97,7 @@ To use `databridge`, you need to install the package and import the `DataBridge`
 
 ```python
 # Import databridge package
-from databridge.databridge import data_btidge as db
+from databridge.databridge import data_bridge as db
 
 # List all available datasets
 db.list_datasets()
@@ -98,3 +105,4 @@ db.list_datasets()
 # Load dataset
 df = db.load_dataset("local", "texas_boundaries")
 ```
+
